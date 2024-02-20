@@ -1,4 +1,4 @@
-import 'package:firebase_crud_app/view/employee.dart';
+import 'package:firebase_crud_app/view/Add_students.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => EmployeeScreen()));
+              MaterialPageRoute(builder: (context) => AddStudentsScreen()));
         },
         child: Icon(Icons.add),
       ),
