@@ -1,3 +1,4 @@
+import 'package:firebase_crud_app/widgets/image_picker.dart';
 import 'package:flutter/material.dart';
 
 class AddStudentsScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
         ),
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 63, 62, 62),
         elevation: 0,
       ),
       body: Padding(
@@ -46,90 +47,116 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                       child: Text(
                         'Image',
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 20),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            color: Colors.black),
                       ),
                     ),
                     SizedBox(height: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.amber,
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(20)),
-                      margin: EdgeInsets.only(left: 80, right: 80),
-                      height: 130,
-                      width: double.infinity,
-                    ),
+                    ImagePickerFrom(),
                     SizedBox(height: 20),
                     Text(
                       'Name',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black),
                     ),
                     SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter the name'),
+                    TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        hintText: 'Enter the name',
+                        hintStyle: TextStyle(color: Colors.black),
                       ),
                     ),
                     SizedBox(height: 20),
                     Text(
                       'Age',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black),
                     ),
                     SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter the age'),
-                      ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          hintText: 'Enter the age',
+                          hintStyle: TextStyle(color: Colors.black)),
                     ),
                     SizedBox(height: 20),
                     Text(
                       'Class',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black),
                     ),
                     SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter the class'),
-                      ),
+                    TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          hintText: 'Enter the class',
+                          hintStyle: TextStyle(color: Colors.black)),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Mobile No',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black),
+                    ),
+                    SizedBox(height: 8),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          hintText: 'Enter the mobile number',
+                          hintStyle: TextStyle(color: Colors.black)),
                     ),
                     SizedBox(height: 20),
                     Text(
                       'Address',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black),
                     ),
                     SizedBox(height: 8),
-                    Container(
-                      padding: EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Enter the address'),
-                      ),
+                    TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          hintText: 'Enter the address',
+                          hintStyle: TextStyle(color: Colors.black)),
                     ),
                     SizedBox(height: 15),
                     Center(
@@ -137,7 +164,15 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text('Add'),
+                        style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all(
+                                Size(double.infinity, 40)),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.green)),
+                        child: Text(
+                          'Submit',
+                          style: TextStyle(color: Colors.black, fontSize: 18),
+                        ),
                       ),
                     ),
                   ],

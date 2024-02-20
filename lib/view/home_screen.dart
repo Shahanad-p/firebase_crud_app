@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 63, 62, 62),
         elevation: 0,
       ),
     );
