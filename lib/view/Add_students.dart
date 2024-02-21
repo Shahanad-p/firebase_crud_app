@@ -1,5 +1,9 @@
+// ignore_for_file: use_build_context_synchronously, file_names, non_constant_identifier_names
+import 'package:firebase_crud_app/service/database.dart';
 import 'package:firebase_crud_app/widgets/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:random_string/random_string.dart';
 
 class AddStudentsScreen extends StatefulWidget {
   const AddStudentsScreen({super.key});
@@ -9,6 +13,11 @@ class AddStudentsScreen extends StatefulWidget {
 }
 
 class _AddStudentsScreenState extends State<AddStudentsScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController classController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +73,9 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: nameController,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -86,6 +98,9 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: ageController,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -107,6 +122,9 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: classController,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
@@ -127,6 +145,9 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: numberController,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -148,6 +169,9 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     ),
                     SizedBox(height: 8),
                     TextField(
+                      controller: addressController,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
@@ -161,7 +185,28 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                     SizedBox(height: 15),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          String Id = randomAlpha(10);
+                          Map<String, dynamic> studentInfoMap = {
+                            'Name': nameController.text,
+                            'Age': ageController.text,
+                            'Class': classController.text,
+                            'Mobile no': numberController.text,
+                            'Address': addressController.text,
+                            'Id': Id,
+                          };
+                          await DatabaseMethod()
+                              .addStudentDetails(studentInfoMap, Id)
+                              .then((value) {
+                            Fluttertoast.showToast(
+                                msg: "Students details uploaded successfully",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: Colors.red,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          });
                           Navigator.pop(context);
                         },
                         style: ButtonStyle(
