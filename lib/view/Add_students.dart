@@ -199,15 +199,15 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
                               .addStudentDetails(studentInfoMap, Id)
                               .then((value) {
                             Fluttertoast.showToast(
-                                msg: "Students details uploaded successfully",
+                                msg: "Students details Added successfully",
                                 toastLength: Toast.LENGTH_SHORT,
                                 gravity: ToastGravity.CENTER,
                                 timeInSecForIosWeb: 1,
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,
                                 fontSize: 16.0);
+                            Navigator.pop(context);
                           });
-                          Navigator.pop(context);
                         },
                         style: ButtonStyle(
                             minimumSize: MaterialStateProperty.all(
