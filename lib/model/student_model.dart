@@ -37,10 +37,17 @@ class StudentModel {
   String? name;
   String? rollno;
   String? classs;
-
+  String? age;
+  String? address;
   String? image;
 
-  StudentModel({this.name, this.rollno, this.classs, required this.image});
+  StudentModel(
+      {this.name,
+      this.rollno,
+      this.classs,
+      this.age,
+      this.address,
+      required this.image});
 
   factory StudentModel.fromJson(Map<String, dynamic> json) {
     return StudentModel(
@@ -48,6 +55,8 @@ class StudentModel {
       name: json['name'] as String?,
       rollno: json['rollno'] as String?,
       classs: json['class'] as String?,
+      age: json['age'] as String?,
+      address: json['address'] as String?,
     );
   }
 
@@ -57,6 +66,8 @@ class StudentModel {
       'name': name,
       'rollno': rollno,
       'class': classs,
+      'age': age,
+      'address': address
     };
   }
 }

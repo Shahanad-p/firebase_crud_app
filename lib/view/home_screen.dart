@@ -561,7 +561,7 @@ class HomeScreen extends StatelessWidget {
                           final data = studentsDoc[index].data();
                           final id = studentsDoc[index].id;
                           return Card(
-                            elevation: 5, // Add elevation for a card-like look
+                            elevation: 5, 
                             margin: const EdgeInsets.all(8),
                             child: ListTile(
                               title: Text(
@@ -575,13 +575,19 @@ class HomeScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Age: ${data.rollno ?? 'N/A'}",
+                                    "Roll No: ${data.rollno ?? 'N/A'}",
                                     style: const TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
                                   Text(
                                     "Class: ${data.classs ?? 'N/A'}",
+                                    style: const TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Age: ${data.age ?? 'N/A'}",
                                     style: const TextStyle(
                                       color: Colors.grey,
                                     ),

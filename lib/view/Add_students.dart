@@ -407,6 +407,8 @@ class AddPage extends StatefulWidget {
   TextEditingController nameController = TextEditingController();
   TextEditingController rollController = TextEditingController();
   TextEditingController classController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   @override
   State<AddPage> createState() => _AddPageState();
@@ -423,6 +425,7 @@ class _AddPageState extends State<AddPage> {
           "Add Details",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -439,7 +442,7 @@ class _AddPageState extends State<AddPage> {
                     icon: Icon(Icons.camera_alt),
                     label: Text('Camera'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amber,
+                      backgroundColor: Colors.greenAccent,
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -453,7 +456,7 @@ class _AddPageState extends State<AddPage> {
                     icon: Icon(Icons.photo_library),
                     label: Text('Gallery'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amberAccent,
+                      backgroundColor: Colors.greenAccent,
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -462,22 +465,37 @@ class _AddPageState extends State<AddPage> {
                   ),
                 ],
               ),
+              if (imagepro.selectImage != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.file(
+                      imagepro.selectImage!,
+                      height: 150,
+                      width: 200,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               SizedBox(height: 20),
               TextFormField(
                 controller: widget.nameController,
                 decoration: InputDecoration(
                   labelText: 'Name',
+                  hintText: 'Enter the name',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(5)),
                 ),
               ),
               SizedBox(height: 20),
               TextFormField(
-                controller: widget.rollController,
+                controller: widget.ageController,
                 decoration: InputDecoration(
-                  labelText: 'Roll No',
+                  labelText: 'Age',
+                  hintText: 'Enter the age',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(5)),
                 ),
                 keyboardType: TextInputType.number,
                 inputFormatters: [
@@ -489,24 +507,36 @@ class _AddPageState extends State<AddPage> {
                 controller: widget.classController,
                 decoration: InputDecoration(
                   labelText: 'Class',
+                  hintText: 'Enter the class',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(5)),
                 ),
               ),
-              if (imagepro.selectImage != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.file(
-                      imagepro.selectImage!,
-                      height: 100,
-                      width: 100,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+              SizedBox(height: 20),
+              TextFormField(
+                controller: widget.rollController,
+                decoration: InputDecoration(
+                  labelText: 'Roll No',
+                  hintText: 'Enter the roll no',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5)),
                 ),
-              SizedBox(height: 10),
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                ],
+              ),
+              SizedBox(height: 20),
+              TextFormField(
+                controller: widget.addressController,
+                decoration: InputDecoration(
+                  labelText: 'Adrees',
+                  hintText: 'Enter the address',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                ),
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_validateFields()) {
@@ -515,10 +545,8 @@ class _AddPageState extends State<AddPage> {
                     _showAlert(context, 'Please fill in all fields and Image.');
                   }
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 248, 248, 248),
-                ),
-                child: const Text('Save'),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+                child: const Text('Submit'),
               ),
             ],
           ),
@@ -530,7 +558,9 @@ class _AddPageState extends State<AddPage> {
   bool _validateFields() {
     return widget.nameController.text.isNotEmpty &&
         widget.classController.text.isNotEmpty &&
-        widget.rollController.text.isNotEmpty;
+        widget.rollController.text.isNotEmpty &&
+        widget.ageController.text.isNotEmpty &&
+        widget.ageController.text.isNotEmpty;
   }
 
   void _showAlert(BuildContext context, String message) {

@@ -74,7 +74,6 @@ import 'package:firebase_crud_app/service/firebase_service.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-
 class StudentProvider extends ChangeNotifier {
   FirebaseService _firebaseService = FirebaseService();
   String uniquename = DateTime.now().microsecondsSinceEpoch.toString();

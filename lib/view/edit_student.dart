@@ -219,7 +219,6 @@
 // import 'package:image_picker/image_picker.dart';
 // import 'package:provider/provider.dart';
 
-
 // class EditPage extends StatefulWidget {
 //   StudentModel student;
 //   String id;
@@ -241,8 +240,6 @@
 //   bool clicked = true;
 
 //   ImagePicker imagePicker = ImagePicker();
-
-
 
 //   void initState() {
 //     super.initState();
@@ -367,7 +364,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-
 // ignore: must_be_immutable
 class EditPage extends StatefulWidget {
   StudentModel student;
@@ -383,6 +379,8 @@ class _EditPageState extends State<EditPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController rollController = TextEditingController();
   TextEditingController classController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   File? selectedImage;
   bool clicked = true;
 
@@ -400,27 +398,15 @@ class _EditPageState extends State<EditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Edit Details'),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Consumer<ImagesProvider>(
           builder: (context, value, child) => Column(
             children: [
-              TextFormField(
-                controller: nameController,
-                decoration: const InputDecoration(labelText: 'Name'),
-              ),
-              SizedBox(height: 15),
-              TextFormField(
-                controller: rollController,
-                decoration: const InputDecoration(labelText: 'RollNo'),
-              ),
-              SizedBox(height: 15),
-              TextFormField(
-                controller: classController,
-                decoration: const InputDecoration(labelText: 'Class'),
-              ),
-              SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -431,7 +417,7 @@ class _EditPageState extends State<EditPage> {
                     icon: Icon(Icons.camera_alt),
                     label: Text('Camera'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amber,
+                      backgroundColor: Colors.greenAccent,
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -447,7 +433,7 @@ class _EditPageState extends State<EditPage> {
                     icon: Icon(Icons.photo_library),
                     label: Text('Gallery'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amberAccent,
+                      backgroundColor: Colors.greenAccent,
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -460,18 +446,50 @@ class _EditPageState extends State<EditPage> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       value.selectImage!.path,
+                      height: 150,
                     ),
                   ),
                 ),
+              TextFormField(
+                controller: nameController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Name'),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: ageController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Age'),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: classController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Class'),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: rollController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'RollNo'),
+              ),
+              SizedBox(height: 15),
+              TextFormField(
+                controller: addressController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Address'),
+              ),
               SizedBox(height: 15),
               ElevatedButton(
                   onPressed: () {
                     editData(context, value.selectImage!.path);
                   },
-                  child: Text("Save"))
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+                  child: Text("Update"))
             ],
           ),
         ),

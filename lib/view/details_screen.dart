@@ -1,7 +1,6 @@
 // import 'package:firebase_crud_app/model/student_model.dart';
 // import 'package:flutter/material.dart';
 
-
 // class Detail extends StatelessWidget {
 //   final StudentModel student;
 
@@ -79,7 +78,6 @@
 import 'package:firebase_crud_app/model/student_model.dart';
 import 'package:flutter/material.dart';
 
-
 class DetailScreen extends StatelessWidget {
   final StudentModel student;
 
@@ -90,11 +88,11 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          student.name ?? 'Student Detail',
-          style: TextStyle(color: Colors.white),
+          'Student Detail',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -115,29 +113,21 @@ class DetailScreen extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              leading: Icon(
-                Icons.person,
-                color: Colors.deepPurple,
-              ),
             ),
             const SizedBox(height: 10),
             ListTile(
               title: Text(
-                "RollNo",
+                "Age",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               subtitle: Text(
-                student.rollno ?? '',
+                student.age ?? '',
                 style: TextStyle(
                   fontSize: 16,
                 ),
-              ),
-              leading: Icon(
-                Icons.format_list_numbered,
-                color: Colors.deepPurple,
               ),
             ),
             const SizedBox(height: 10),
@@ -155,9 +145,37 @@ class DetailScreen extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              leading: Icon(
-                Icons.school,
-                color: Colors.deepPurple,
+            ),
+            const SizedBox(height: 10),
+            ListTile(
+              title: Text(
+                "RollNo",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                student.rollno ?? '',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ListTile(
+              title: Text(
+                "Address",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                student.address ?? '',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
               ),
             ),
           ],
