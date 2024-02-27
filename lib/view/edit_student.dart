@@ -1,5 +1,7 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
-import 'package:firebase_crud_app/controller/base_provider.dart';
+import 'package:firebase_crud_app/controller/image_provider.dart';
 import 'package:firebase_crud_app/controller/student_provider.dart';
 import 'package:firebase_crud_app/model/student_model.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +35,8 @@ class _EditPageState extends State<EditPage> {
     nameController = TextEditingController(text: widget.student.name);
     rollController = TextEditingController(text: widget.student.rollno);
     classController = TextEditingController(text: widget.student.classs);
+    ageController = TextEditingController(text: widget.student.age);
+    addressController = TextEditingController(text: widget.student.address);
     Provider.of<ImagesProvider>(context, listen: false).selectImage =
         File(widget.student.image!);
   }
@@ -147,11 +151,18 @@ class _EditPageState extends State<EditPage> {
       final newName = nameController.text;
       final newRollno = rollController.text;
       final newClass = classController.text;
+      final newAge = ageController.text;
+      final newAddress = addressController.text;
 
       await provider.updateImage(imageurl, imagepro.selectImage);
 
       final updatedStudent = StudentModel(
-          image: imageurl, name: newName, rollno: newRollno, classs: newClass);
+          image: imageurl,
+          name: newName,
+          rollno: newRollno,
+          classs: newClass,
+          age: newAge,
+          address: newAddress);
 
       provider.updateStudent(widget.id, updatedStudent);
       Navigator.pop(context);

@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crud_app/controller/base_provider.dart';
+import 'package:firebase_crud_app/controller/image_provider.dart';
 import 'package:firebase_crud_app/controller/student_provider.dart';
 import 'package:firebase_crud_app/service/firebase_options.dart';
 import 'package:firebase_crud_app/view/home_screen.dart';

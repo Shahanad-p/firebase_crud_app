@@ -1,9 +1,8 @@
 // ignore_for_file: must_be_immutable
 import 'dart:io';
-import 'package:firebase_crud_app/controller/base_provider.dart';
+import 'package:firebase_crud_app/controller/image_provider.dart';
 import 'package:firebase_crud_app/controller/student_provider.dart';
 import 'package:firebase_crud_app/model/student_model.dart';
-import 'package:firebase_crud_app/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -146,6 +145,7 @@ class _AddPageState extends State<AddPage> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
+                  Navigator.pop(context);
                   if (_validateFields()) {
                     addStudent(context);
                   } else {
@@ -196,20 +196,20 @@ class _AddPageState extends State<AddPage> {
     final provider = Provider.of<StudentProvider>(context, listen: false);
     final imagepro = Provider.of<ImagesProvider>(context, listen: false);
     final name = widget.nameController.text;
+    final age = widget.ageController.text;
     final roll = widget.rollController.text;
     final classs = widget.classController.text;
+    final address = widget.addressController.text;
 
     await provider.imageAdder(File(imagepro.selectImage!.path));
     final student = StudentModel(
-        name: name, rollno: roll, classs: classs, image: provider.downloadurl);
+        name: name,
+        rollno: roll,
+        age: age,
+        classs: classs,
+        address: address,
+        image: provider.downloadurl);
 
     provider.addStudent(student);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ),
-    );
   }
 }

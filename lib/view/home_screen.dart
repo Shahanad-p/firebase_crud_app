@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_crud_app/controller/student_provider.dart';
 import 'package:firebase_crud_app/model/student_model.dart';
@@ -59,19 +58,19 @@ class HomeScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Roll No: ${data.rollno ?? 'N/A'}",
+                                    "Age: ${data.age ?? 'no age'}",
                                     style: const TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
                                   Text(
-                                    "Class: ${data.classs ?? 'N/A'}",
+                                    "Roll No: ${data.rollno ?? 'no rollno'}",
                                     style: const TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
                                   Text(
-                                    "Age: ${data.age ?? 'N/A'}",
+                                    "Class: ${data.classs ?? 'no class'}",
                                     style: const TextStyle(
                                       color: Colors.grey,
                                     ),
@@ -79,6 +78,7 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                               leading: CircleAvatar(
+                                radius: 50,
                                 backgroundColor: Colors.deepPurple,
                                 backgroundImage: data.image != null
                                     ? NetworkImage(data.image!)
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        DetailScreen(student: data),
+                                        DetailScreen(studentInfo: data),
                                   ),
                                 );
                               },

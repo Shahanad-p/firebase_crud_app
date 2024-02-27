@@ -1,12 +1,10 @@
-
-
 import 'package:firebase_crud_app/model/student_model.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  final StudentModel student;
+  final StudentModel studentInfo;
 
-  const DetailScreen({required this.student, Key? key}) : super(key: key);
+  const DetailScreen({required this.studentInfo, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                student.name ?? '',
+                studentInfo.name ?? 'No data',
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -49,7 +47,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                student.age ?? '',
+                studentInfo.age ?? 'No data',
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -65,7 +63,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                student.classs ?? '',
+                studentInfo.classs ?? 'No data',
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -81,7 +79,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                student.rollno ?? '',
+                studentInfo.rollno ?? 'No data',
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -97,7 +95,7 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                student.address ?? '',
+                studentInfo.address ?? 'No data',
                 style: TextStyle(
                   fontSize: 16,
                 ),
