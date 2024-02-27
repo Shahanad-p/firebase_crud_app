@@ -37,7 +37,7 @@ class StudentProvider extends ChangeNotifier {
       await images.putFile(image);
       downloadurl = await images.getDownloadURL();
       notifyListeners();
-      print(downloadurl);
+      // print(downloadurl);
     } catch (e) {
       throw Exception(e);
     }
@@ -49,17 +49,17 @@ class StudentProvider extends ChangeNotifier {
         Reference storedimage = FirebaseStorage.instance.refFromURL(imageurl);
         await storedimage.putFile(newimage);
         downloadurl = await storedimage.getDownloadURL();
-        print("Image uploaded successfully. Download URL: $downloadurl");
+        // print("Image uploaded successfully. Download URL: $downloadurl");
         notifyListeners();
       } else {
         // If no new image or new image is null or doesn't exist, keep the existing URL
         downloadurl = imageurl;
-        print("No new image provided. Using existing URL: $downloadurl");
+        // print("No new image provided. Using existing URL: $downloadurl");
       }
       notifyListeners();
     } catch (e) {
       // Handle exceptions appropriately (e.g., show an error message)
-      print("Error updating image: $e");
+      // print("Error updating image: $e");
     }
   }
 

@@ -30,6 +30,7 @@ class _EditPageState extends State<EditPage> {
 
   ImagePicker imagePicker = ImagePicker();
 
+  @override
   void initState() {
     super.initState();
     nameController = TextEditingController(text: widget.student.name);
@@ -167,7 +168,7 @@ class _EditPageState extends State<EditPage> {
       provider.updateStudent(widget.id, updatedStudent);
       Navigator.pop(context);
     } catch (e) {
-      print("Error on Updating :$e");
+      // print("Error on Updating :$e");
     }
   }
 }

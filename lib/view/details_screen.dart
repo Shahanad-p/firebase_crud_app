@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
   final StudentModel studentInfo;
+  final String? imageUrl; // Added imageUrl variable
 
-  const DetailScreen({required this.studentInfo, Key? key}) : super(key: key);
+  const DetailScreen({
+    required this.studentInfo,
+    required this.imageUrl, // Updated constructor to accept imageUrl
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +27,20 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              height: 150,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                image: imageUrl != null // Check if imageUrl is not null
+                    ? DecorationImage(
+                        image: NetworkImage(imageUrl!), // Load the image
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
+            ),
             ListTile(
               title: Text(
                 "Name",

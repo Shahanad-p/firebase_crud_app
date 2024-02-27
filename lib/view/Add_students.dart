@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, file_names
 import 'dart:io';
 import 'package:firebase_crud_app/controller/image_provider.dart';
 import 'package:firebase_crud_app/controller/student_provider.dart';
