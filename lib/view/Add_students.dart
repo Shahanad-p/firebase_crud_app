@@ -24,7 +24,6 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     final imagepro = Provider.of<ImagesProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(

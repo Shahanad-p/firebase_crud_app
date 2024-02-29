@@ -37,7 +37,6 @@ class StudentProvider extends ChangeNotifier {
       await images.putFile(image);
       downloadurl = await images.getDownloadURL();
       notifyListeners();
-      // print(downloadurl);
     } catch (e) {
       throw Exception(e);
     }
@@ -54,11 +53,9 @@ class StudentProvider extends ChangeNotifier {
       } else {
         // If no new image or new image is null or doesn't exist, keep the existing URL
         downloadurl = imageurl;
-        // print("No new image provided. Using existing URL: $downloadurl");
       }
       notifyListeners();
     } catch (e) {
-      // Handle exceptions appropriately (e.g., show an error message)
       // print("Error updating image: $e");
     }
   }
