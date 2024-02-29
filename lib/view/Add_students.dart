@@ -90,7 +90,7 @@ class _AddPageState extends State<AddPage> {
                   labelText: 'Name',
                   hintText: 'Enter the name',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
               ),
               SizedBox(height: 20),
@@ -100,7 +100,7 @@ class _AddPageState extends State<AddPage> {
                   labelText: 'Age',
                   hintText: 'Enter the age',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
                 keyboardType: TextInputType.number,
                 inputFormatters: [
@@ -114,7 +114,7 @@ class _AddPageState extends State<AddPage> {
                   labelText: 'Class',
                   hintText: 'Enter the class',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
               ),
               SizedBox(height: 20),
@@ -124,7 +124,7 @@ class _AddPageState extends State<AddPage> {
                   labelText: 'Roll No',
                   hintText: 'Enter the roll no',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
                 keyboardType: TextInputType.number,
                 inputFormatters: [
@@ -138,7 +138,7 @@ class _AddPageState extends State<AddPage> {
                   labelText: 'Adrees',
                   hintText: 'Enter the address',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
               ),
               SizedBox(height: 20),
