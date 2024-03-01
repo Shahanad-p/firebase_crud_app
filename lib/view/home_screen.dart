@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 33, 20, 20),
-                                  borderRadius: BorderRadius.circular(20)),
+                                  borderRadius: BorderRadius.circular(20.10)),
                               child: ListTile(
                                 title: Text(
                                   data.name ?? 'No Name',

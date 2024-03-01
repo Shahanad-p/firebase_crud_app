@@ -33,9 +33,9 @@ class DetailScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
-                image: imageUrl != null // Check if imageUrl is not null
+                image: imageUrl != null
                     ? DecorationImage(
-                        image: NetworkImage(imageUrl!), // Load the image
+                        image: NetworkImage(imageUrl!),
                         fit: BoxFit.cover,
                       )
                     : null,

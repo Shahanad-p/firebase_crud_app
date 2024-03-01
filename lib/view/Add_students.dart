@@ -34,7 +34,7 @@ class _AddPageState extends State<AddPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.10),
           child: Column(
             children: [
               Row(
